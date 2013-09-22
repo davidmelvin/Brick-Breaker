@@ -4,16 +4,13 @@
  * Brick Breaker C++ OOP Project
  */
 
-#include <allegro5\allegro.h>
-#include <allegro5\allegro_native_dialog.h>
-#include <allegro5\allegro_font.h>
-#include <allegro5\allegro_ttf.h>
-#include <allegro5\allegro_primitives.h>
+#include "Include.h"
+
 /*
 *****IMPORTANT! PLEASE READ*****
-The include folder that came with your allegro download 
+The include folder, lib files, and bin files that came with your allegro download 
 (VERSION 5.0.9 for me, 5.0.10 for Vivek) should be placed within the regular C++ 
-include file.  Ask Roland if you need help.
+include file, lib folder, and bin folder respectively.  Ask Roland if you need help.
 
 Be sure that you are creating a separate VS project and linking it with this one by right clicking Source Files (or Header Files)
 and then Add > Existing and find the ones in git.  Similarly, when creating new files, put them in the github folder
