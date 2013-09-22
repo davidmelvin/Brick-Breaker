@@ -1,5 +1,5 @@
 /*
- * David Melvin, Roland Fong, Vivek Jain
+ * Vivek Jain, David Melvin, Roland Fong
  * 9/21/13
  * Brick Breaker C++ OOP Project
  */
