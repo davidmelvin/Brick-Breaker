@@ -12,10 +12,13 @@
 /*
 *****IMPORTANT! PLEASE READ*****
 The include folder that came with your allegro download 
-(VERSION 5.0.9) should be placed within the regular C++ 
+(VERSION 5.0.9 for me, 5.0.10 for Vivek) should be placed within the regular C++ 
 include file.  Ask Roland if you need help.
-Do not tinker with environment variables as it may cause
-issues for others to get the program to work
+
+Be sure that you are creating a separate VS project and linking it with this one by right clicking Source Files (or Header Files)
+and then Add > Existing and find the ones in git.  Similarly, when creating new files, put them in the github folder
+
+Before opening your project be sure to sync in git. When you sync, be sure to save first!
 */
 
 using namespace std;
