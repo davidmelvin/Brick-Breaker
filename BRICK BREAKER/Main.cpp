@@ -44,6 +44,7 @@ int main()
 			"Failed to initialize display!", NULL, NULL);
 		return -1;
 	}
+	al_set_window_title(display, "Reverse Engineering");
 
 	/*****ADD ONS AND INPUT INITIALIZATION*****/
 	al_init_font_addon();
@@ -60,6 +61,7 @@ int main()
 	bool redraw = true;//used in double buffering game (avoid flickering)
 	ALLEGRO_EVENT_QUEUE *event_queue = NULL;
 	ALLEGRO_TIMER *timer = NULL;
+	Brick brTest(0, 0, "img/brickTest.png");
 
 	event_queue = al_create_event_queue();
 
@@ -84,7 +86,7 @@ int main()
 
 		if(ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
 		{
-			if(al_show_native_message_box(NULL, "Exit",
+			if(al_show_native_message_box(display, "Exit",
 				"Are you sure you want to exit?", NULL,
 				NULL, ALLEGRO_MESSAGEBOX_YES_NO) == 1)
 			{
@@ -100,6 +102,7 @@ int main()
 		{
 			redraw = false;
 			//DRAWING CODE HERE
+			brTest.draw();//TODO Fix so that this displays
 			al_flip_display();//transfers drawing code to screen
 			al_clear_to_color(al_map_rgb(0,0,0));//resets screen color (may not be necessary)
 			//Note that previously drawn figures will still be on the screen; al_clear_to_color is used to delete them.
