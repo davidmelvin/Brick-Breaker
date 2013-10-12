@@ -13,10 +13,16 @@
 #include <allegro5\allegro_font.h>
 #include <allegro5\allegro_ttf.h>
 #include <allegro5\allegro_primitives.h>
+#include <allegro5\allegro_image.h>
+#include <allegro5\bitmap.h>
 //user defined include files
 #include "Brick.h"
 #include "BlockBrick.h"
 #include "StoneBrick.h"
 #include "RegBrick.h"
+
+#define WIDTH 300
+#define HEIGHT 600
+//NOTE: We need to decide on width and height for screen
 
 #endif

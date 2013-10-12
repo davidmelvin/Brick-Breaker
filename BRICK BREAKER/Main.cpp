@@ -20,10 +20,6 @@ Before opening your project be sure to sync in git. When you sync, be sure to sa
 
 using namespace std;
 
-#define WIDTH 300
-#define HEIGHT 600
-//NOTE: We need to decide on width and height for screen
-
 int main()
 {
 	/*****INITIALIZE ALLEGRO*****/
@@ -50,6 +46,7 @@ int main()
 	al_init_font_addon();
 	al_init_ttf_addon();
 	al_init_primitives_addon(); //may not need this...
+	al_init_image_addon();
 	al_install_keyboard();
 	al_install_mouse();
 
@@ -102,7 +99,7 @@ int main()
 		{
 			redraw = false;
 			//DRAWING CODE HERE
-			brTest.draw();//TODO Fix so that this displays
+			brTest.draw();
 			al_flip_display();//transfers drawing code to screen
 			al_clear_to_color(al_map_rgb(0,0,0));//resets screen color (may not be necessary)
 			//Note that previously drawn figures will still be on the screen; al_clear_to_color is used to delete them.

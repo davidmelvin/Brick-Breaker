@@ -10,7 +10,14 @@ Brick::Brick(int x, int y, string imgName)
 	posY = y;
 	width = 60;
 	height = 30;
-	brickImage = al_load_bitmap(imgName.c_str());
+	if(brickImage = al_load_bitmap(imgName.c_str()))
+	{
+		cout << "Successfully loaded: " << imgName << endl;
+	}
+	else
+	{
+		cout << "Failed to load: " << imgName << endl;
+	}
 }
 Brick::Brick(int x, int y, int w, int h, string imgName)
 {
@@ -18,10 +25,18 @@ Brick::Brick(int x, int y, int w, int h, string imgName)
 	posY = y;
 	width = w;
 	height = h;
-	brickImage = al_load_bitmap(imgName.c_str());
+	if(brickImage = al_load_bitmap(imgName.c_str()))
+	{
+		cout << "Successfully loaded: " << imgName << endl;
+	}
+	else
+	{
+		cout << "Failed to load: " << imgName << endl;
+	}
 }
 Brick::~Brick()
 {
+	cout << "Destroying Brick" << endl;
 	al_destroy_bitmap(brickImage);
 }
 int Brick::getWidth()
