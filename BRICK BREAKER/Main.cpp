@@ -46,27 +46,35 @@ int main()
 	al_init_font_addon();
 	al_init_ttf_addon();
 	al_init_primitives_addon(); //may not need this...
-	al_init_image_addon();
+	if(!al_init_image_addon())
+		cout << "Could not install image addon" << endl;
+	else
+		cout << "Installed image addon" << endl;
+
 	if(!al_install_keyboard())
 		cout << "Could not install keyboard" << endl;
 	else
-		cout << "Installed Keyboard" << endl;
-	al_install_mouse();
+		cout << "Installed keyboard" << endl;
+
+	if(!al_install_mouse())
+		cout << "Could not install mouse" << endl;
+	else
+		cout << "Installed mouse" << endl;
 
 
 	/*****VARIABLE DECLARATIONS*****/
-	int FPS = 60;// frame rate per second
 	bool done = false;//if true, game ends
 	bool draw = true;
 	bool redraw = true;//used in double buffering game (avoid flickering)
 	ALLEGRO_EVENT_QUEUE *event_queue = NULL;
 	ALLEGRO_TIMER *timer = NULL;
-	Brick brTest(0, 0, "img/brickTest.png");
-	Paddle paddle1("img/paddle.png", WIDTH / 2 - 150 / 2, HEIGHT - 20, 150, 15);
-	
+
 	enum KEYS {KEY_RIGHT, KEY_LEFT};
 	bool keyPress[2] = {false, false};
 
+	RegBrick brTest(0, 0, "img/brickTest.png");
+	Paddle paddle1("img/paddle.png", WIDTH / 2 - 150 / 2, HEIGHT - 20, 150, 15);
+	
 	event_queue = al_create_event_queue();
 
 	al_clear_to_color(al_map_rgb(0, 0, 0));
@@ -104,7 +112,6 @@ int main()
 			case ALLEGRO_KEY_RIGHT:
 				cout << "Pressed Right Key" << endl;
 				keyPress[KEY_RIGHT] = true;
-				//paddle1.move(ALLEGRO_KEY_RIGHT, 1);
 				break;
 			case ALLEGRO_KEY_LEFT:
 				cout << "Pressed Left Key" << endl;

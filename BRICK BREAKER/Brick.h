@@ -5,6 +5,7 @@ using namespace std;
 
 class Brick
 {
+protected:
 	int width;
 	int height;
 	int posX;
