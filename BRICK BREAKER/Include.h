@@ -27,7 +27,6 @@
 
 #define WIDTH 600
 #define HEIGHT 600
-//NOTE: We need to decide on width and height for screen
-
+#define FPS 60
 
 #endif

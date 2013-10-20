@@ -5,6 +5,15 @@
 #include "Include.h"
 using namespace std;
 
+StoneBrick::StoneBrick(int x, int y, string imgName, int h) : Brick(x, y, imgName)
+{
+	hardness = h;
+}
+StoneBrick::StoneBrick(int x, int y, int w, string imgName, int h) : Brick(x, y, w, h, imgName)
+{
+	hardness = h;
+}
+
 int StoneBrick::getHardness()
 {
 	return hardness;
