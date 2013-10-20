@@ -4,9 +4,11 @@
 
 #ifndef INCLUDE_H //Wrapper
 #define INCLUDE_H
+
 //system include files
 #include <iostream>
 #include <string>
+#include <math.h>
 //allegro include files
 #include <allegro5\allegro.h>
 #include <allegro5\allegro_native_dialog.h>
@@ -20,9 +22,12 @@
 #include "BlockBrick.h"
 #include "StoneBrick.h"
 #include "RegBrick.h"
+#include "Paddle.h"
+#include "Ball.h"
 
-#define WIDTH 300
+#define WIDTH 600
 #define HEIGHT 600
 //NOTE: We need to decide on width and height for screen
+
 
 #endif

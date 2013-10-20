@@ -47,7 +47,10 @@ int main()
 	al_init_ttf_addon();
 	al_init_primitives_addon(); //may not need this...
 	al_init_image_addon();
-	al_install_keyboard();
+	if(!al_install_keyboard())
+		cout << "Could not install keyboard" << endl;
+	else
+		cout << "Installed Keyboard" << endl;
 	al_install_mouse();
 
 
@@ -59,6 +62,10 @@ int main()
 	ALLEGRO_EVENT_QUEUE *event_queue = NULL;
 	ALLEGRO_TIMER *timer = NULL;
 	Brick brTest(0, 0, "img/brickTest.png");
+	Paddle paddle1("img/paddle.png", WIDTH / 2 - 150 / 2, HEIGHT - 20, 150, 15);
+	
+	enum KEYS {KEY_RIGHT, KEY_LEFT};
+	bool keyPress[2] = {false, false};
 
 	event_queue = al_create_event_queue();
 
@@ -90,8 +97,49 @@ int main()
 				done = true;
 			}
 		}
+		if(ev.type == ALLEGRO_EVENT_KEY_DOWN)
+		{
+			switch(ev.keyboard.keycode)
+			{
+			case ALLEGRO_KEY_RIGHT:
+				cout << "Pressed Right Key" << endl;
+				keyPress[KEY_RIGHT] = true;
+				//paddle1.move(ALLEGRO_KEY_RIGHT, 1);
+				break;
+			case ALLEGRO_KEY_LEFT:
+				cout << "Pressed Left Key" << endl;
+				keyPress[KEY_LEFT] = true;
+				break;
+			case ALLEGRO_KEY_ESCAPE:
+				cout << "Escaped" << endl;
+				return 0;
+				break;
+			}
+		}
+		else if(ev.type == ALLEGRO_EVENT_KEY_UP)
+		{
+			switch(ev.keyboard.keycode)
+			{
+			case ALLEGRO_KEY_RIGHT:
+				cout << "Released Right Key" << endl;
+				keyPress[KEY_RIGHT] = false;
+				break;
+			case ALLEGRO_KEY_LEFT:
+				cout << "Released Left Key" << endl;
+				keyPress[KEY_LEFT] = false;
+				break;
+			}
+		}
 		else if(ev.type == ALLEGRO_EVENT_TIMER)//i.e. in new frame, redraw everything
 		{
+			if(keyPress[KEY_RIGHT] == true)
+			{
+				paddle1.move(ALLEGRO_KEY_RIGHT, 5);
+			}
+			else if(keyPress[KEY_LEFT] == true)
+			{
+				paddle1.move(ALLEGRO_KEY_LEFT, 5);
+			}
 			redraw = true;
 		}
 		/*****DRAWING*****/
@@ -99,6 +147,7 @@ int main()
 		{
 			redraw = false;
 			//DRAWING CODE HERE
+			paddle1.draw();
 			brTest.draw();
 			al_flip_display();//transfers drawing code to screen
 			al_clear_to_color(al_map_rgb(0,0,0));//resets screen color (may not be necessary)
