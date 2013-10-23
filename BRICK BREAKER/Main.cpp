@@ -68,7 +68,17 @@ int main()
 	bool redraw = true;//used in double buffering game (avoid flickering)
 	ALLEGRO_EVENT_QUEUE *event_queue = NULL;
 	ALLEGRO_TIMER *timer = NULL;
+<<<<<<< HEAD
+	Brick brTest(0, 0, "img/brickTest.png");
+	Paddle paddle1("img/paddle.png", WIDTH / 2 - 150 / 2, HEIGHT - 20, 150, 15);
+	Ball ball1 ("img/ball1.png", WIDTH / 2, HEIGHT - 35, 15, 15);
+	Ball ballTest("img/ball1.png", 585, 100, 15, 15);
+	ballTest.setAngle(PI/4);
+	ballTest.setVelocity(2);
+	
+=======
 
+>>>>>>> 3061617e20fbb27517eccddff82ad2831719ba1e
 	enum KEYS {KEY_RIGHT, KEY_LEFT};
 	bool keyPress[2] = {false, false};
 
@@ -130,6 +140,7 @@ int main()
 			case ALLEGRO_KEY_RIGHT:
 				cout << "Released Right Key" << endl;
 				keyPress[KEY_RIGHT] = false;
+				//ballTest.move();
 				break;
 			case ALLEGRO_KEY_LEFT:
 				cout << "Released Left Key" << endl;
@@ -156,6 +167,8 @@ int main()
 			//DRAWING CODE HERE
 			paddle1.draw();
 			brTest.draw();
+			ball1.draw();
+			ballTest.draw();
 			al_flip_display();//transfers drawing code to screen
 			al_clear_to_color(al_map_rgb(0,0,0));//resets screen color (may not be necessary)
 			//Note that previously drawn figures will still be on the screen; al_clear_to_color is used to delete them.

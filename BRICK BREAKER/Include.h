@@ -25,6 +25,7 @@
 #include "Paddle.h"
 #include "Ball.h"
 
+#define PI 3.1415926535897932384626433832795028841971
 #define WIDTH 600
 #define HEIGHT 600
 #define FPS 60

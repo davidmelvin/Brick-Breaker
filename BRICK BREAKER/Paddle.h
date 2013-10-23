@@ -14,6 +14,7 @@ public:
 	void move(int,int);
 	void collision();
 	void draw();
+	void checkspace();
 	Paddle(string, int, int, int, int);
 	~Paddle();
 };

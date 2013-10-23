@@ -18,6 +18,11 @@ void Paddle :: move(int dir, int a=5)
 	}
 }
 
+void Paddle :: checkspace()
+{
+	;
+}
+
 void Paddle :: collision()
 {
 	;
